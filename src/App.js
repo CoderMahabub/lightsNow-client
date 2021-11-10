@@ -11,6 +11,7 @@ import ExploreLights from "./Pages/ExploreLights/ExploreLights";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login/Login";
 import Register from "./Pages/Login/Register/Register";
+import OrderPage from "./Pages/OrderPage/OrderPage";
 import PrivateRoute from "./Pages/PrivateRoute/PrivateRoute";
 
 function App() {
@@ -37,6 +38,9 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
+            <PrivateRoute path="/buyLight/:_id">
+              <OrderPage></OrderPage>
+            </PrivateRoute>
           </Switch>
         </Router>
       </AuthProvider>

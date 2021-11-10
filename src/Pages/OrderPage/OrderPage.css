@@ -1,0 +1,14 @@
+.booking label{
+    color: #000;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.booking form input{
+    margin-bottom: 15px;
+    color: #000;
+    padding: 2px 20px;
+}
+.hidden-field{
+    display: none;
+}

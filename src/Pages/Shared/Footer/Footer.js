@@ -17,7 +17,7 @@ const Footer = () => {
     return (
         <div className="my-5">
             <footer className="text-center text-lg-start text-dark">
-                <section className="d-flex justify-content-between p-4 text-white social-ico">
+                <section className="d-flex justify-content-between p-4 text-white bg-dark">
                     <div className="me-5">
                         <span>Get connected with us on social networks:</span>
                     </div>

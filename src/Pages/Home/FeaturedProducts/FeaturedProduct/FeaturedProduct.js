@@ -20,11 +20,11 @@ const FeaturedProduct = ({ fProduct }) => {
                         </Card.Text>
                     </Card.Body>
                     <div className="d-flex justify-content-between align-items-center px-2">
-                        <Link to="">
-                            {/* {`/buyPackage/${_id}`} */}
-                            <button className="btn btn-success text-light fw-bold">Book Now!</button>
+
+                        <span className="text-secondary ps-2">{priceTag} <span className="text-warning fw-bold fs-5 ms-1">${lightPrice}</span></span>
+                        <Link to={`/buyLight/${_id}`}>
+                            <button className="btn btn-success text-light fw-bold">Buy Now!</button>
                         </Link>
-                        <span className="text-secondary">{priceTag} <span className="text-warning fw-bold fs-5 ms-1">${lightPrice}</span></span>
                     </div>
                 </Card>
             </Col>
