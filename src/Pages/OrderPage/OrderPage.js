@@ -44,8 +44,15 @@ const OrderPage = () => {
                             <Col className="border p-3">
                                 {(products.length !== 0) &&
                                     <div>
-                                        <h2 className="text-success pb-2"><u>Light Detail</u></h2>
-                                        <img width="100px" height="auto" src={singleProduct?.lightThumbnail} />
+                                        <h2 className="text-success pb-2"><u>Order Light Detail</u></h2>
+                                        <Row className="d-flex justify-content-center align-items-center border text-start">
+                                            <Col sm={12} md={2}>
+                                                <img className="img-fluid" width="100%" height="auto" src={singleProduct?.lightThumbnail} />
+                                            </Col>
+                                            <Col sm={12} md={10}>
+                                                <p className="px-2">{singleProduct?.lightDescription.slice(0, 150)} .....</p>
+                                            </Col>
+                                        </Row>
                                         <br />
                                         <label htmlFor="pTitle">Lights Name : </label>
                                         <input readOnly defaultValue={singleProduct?.lightTitle} {...register("lightTitle")} id="lightTitle" />
@@ -78,7 +85,7 @@ const OrderPage = () => {
                     <div className="hidden-field">
                         <input defaultValue="Pending" {...register("status")} />
                     </div>
-                    <input className="btn btn-lg btn-success text-light" type="submit" value="Click to Book" />
+                    <input className="btn btn-lg btn-success text-light" type="submit" value="Place Order" />
                 </form>
                 <ToastContainer />
             </div>
