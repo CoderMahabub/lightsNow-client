@@ -1,0 +1,14 @@
+footer{
+    background-color: #ECEFF1;
+}
+.hr-bottom{
+    width: 60px; 
+    background-color: #7c4dff; 
+    height: 2px;
+}
+.social-ico{
+    background-color: #21D192;
+}
+.footer-bottom{
+    background-color: rgba(0, 0, 0, 0.2);
+}
