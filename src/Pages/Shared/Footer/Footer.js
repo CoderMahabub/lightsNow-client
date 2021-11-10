@@ -90,7 +90,7 @@ const Footer = () => {
                 </section>
                 <div className="text-center p-3 footer-bottom">
                     © 2021 Copyright:
-                    <Link className="text-dark" to="https://lights-now.web.app/">lights-now.web.app</Link>
+                    <Link className="text-dark" to="https://lights-now.web.app/">Lights-Now.web.app</Link>
                 </div>
             </footer>
         </div>

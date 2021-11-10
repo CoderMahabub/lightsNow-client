@@ -2,6 +2,7 @@ import React from 'react';
 import Footer from '../../Shared/Footer/Footer';
 import NavBar from '../../Shared/NavBar/NavBar';
 import CallToAction from '../CallToAction/CallToAction';
+import FeaturedProducts from '../FeaturedProducts/FeaturedProducts';
 import Slider from '../Slider/Slider';
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
         <div>
             <NavBar></NavBar>
             <Slider></Slider>
+            <FeaturedProducts></FeaturedProducts>
             <CallToAction></CallToAction>
             <Footer></Footer>
         </div>
