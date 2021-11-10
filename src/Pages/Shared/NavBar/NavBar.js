@@ -26,8 +26,11 @@ const NavBar = () => {
                         <Nav.Link className="fw-bold text-dark" as={HashLink} to="/exploreLights">Explore-Lights</Nav.Link>
                         <Nav.Link className="fw-bold text-dark" as={HashLink} to="/dashboard">Dashboard</Nav.Link>
                         {(!user?.email) ? <Nav.Link className="fw-bold text-dark" as={HashLink} to="/login">Login</Nav.Link>
-                            :
-                            <button onClick={handleLogout} className="btn btn-sm btn-dark">Logout</button>}
+                            : <>
+                                <span className="fw-bold mt-1 mx-2 text-success border p-1">{user?.displayName}</span>
+                                <button onClick={handleLogout} className="btn btn-sm btn-dark">Logout</button>
+                            </>
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>
