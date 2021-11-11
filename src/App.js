@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import './App.css';
 import AuthProvider from "./context/AuthProvider";
-import Dashboard from "./Pages/Dashboard/Dashboard";
+import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import ExploreLights from "./Pages/ExploreLights/ExploreLights";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login/Login";
