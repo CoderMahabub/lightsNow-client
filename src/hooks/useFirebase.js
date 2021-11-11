@@ -17,6 +17,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
+    const [admin, setAdmin] = useState(false);
 
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
@@ -74,6 +75,16 @@ const useFirebase = () => {
         return unsubscribe;
     }, [])
 
+
+    // Check Admin or Not
+    useEffect(() => {
+        fetch(`https://agile-retreat-45077.herokuapp.com/users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user.email])
+
+
+
     // Handle Logout
     const handleLogout = () => {
         signOut(auth)
@@ -89,7 +100,7 @@ const useFirebase = () => {
 
     const saveUser = (email, displayName) => {
         const user = { email, displayName };
-        fetch('http://localhost:5000/users', {
+        fetch('https://agile-retreat-45077.herokuapp.com/users', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(user)
@@ -104,7 +115,8 @@ const useFirebase = () => {
         handleLogout,
         loading,
         registerUser,
-        loginUser
+        loginUser,
+        admin
     }
 }
 export default useFirebase;

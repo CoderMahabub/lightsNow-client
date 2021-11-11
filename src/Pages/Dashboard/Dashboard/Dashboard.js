@@ -20,18 +20,17 @@ import DashboardHome from '../DashboardHome/DashboardHome';
 
 
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
-    useParams,
     useRouteMatch
 } from "react-router-dom";
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import AdminRoute from '../../AdminRoute/AdminRoute';
 
 const drawerWidth = 200;
 
 function Dashboard(props) {
-    const { handleLogout } = useAuth();
+    const { handleLogout, admin } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -48,9 +47,11 @@ function Dashboard(props) {
                 <Link to="/"><Button variant="contained">Goto Home</Button> </Link>
                 <hr />
                 <Link to={`${url}`}><Button color="inherit">Dashboard</Button> </Link>
-                <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button> </Link>
-                <Link to={`${url}/manageOrders`}><Button color="inherit">Manage Orders</Button> </Link>
-                <Link to={`${url}/myOrders`}><Button color="inherit">My Orders</Button> </Link>
+                {admin && <Box>
+                    <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button> </Link>
+                    <Link to={`${url}/manageOrders`}><Button color="inherit">Manage Orders</Button> </Link>
+                    <Link to={`${url}/myOrders`}><Button color="inherit">My Orders</Button> </Link>
+                </Box>}
 
                 <hr />
                 <Button onClick={handleLogout} variant="contained" color="error">
@@ -130,15 +131,15 @@ function Dashboard(props) {
                     <Route exact path={path}>
                         <DashboardHome></DashboardHome>
                     </Route>
-                    <Route path={`${path}/manageOrders`}>
+                    <AdminRoute path={`${path}/manageOrders`}>
                         <ManageAllOrders></ManageAllOrders>
-                    </Route>
+                    </AdminRoute>
                     <Route path={`${path}/myOrders`}>
                         <MyOrders></MyOrders>
                     </Route>
-                    <Route path={`${path}/makeAdmin`}>
+                    <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
-                    </Route>
+                    </AdminRoute>
                 </Switch>
             </Box>
         </Box>
