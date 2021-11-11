@@ -15,6 +15,18 @@ import useAuth from '../../../hooks/useAuth';
 import { Button } from '@mui/material';
 import MyOrders from "../MyOrders/MyOrders.js"
 import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
+import DashboardHome from '../DashboardHome/DashboardHome';
+
+
+
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    useParams,
+    useRouteMatch
+} from "react-router-dom";
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
 
 const drawerWidth = 200;
 
@@ -23,6 +35,7 @@ function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
+    let { path, url } = useRouteMatch();
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -31,21 +44,19 @@ function Dashboard(props) {
         <div>
             <Toolbar />
             <Divider />
-            <List>
-                <Link to="/dashboard" className="text-secondary text-decoration-none">
-                    Dashboard
-                </Link>
-                <br />
-                <Link to="/dashboard" className="text-secondary text-decoration-none">
-                    Dashboard
-                </Link>
+            <List sx={{ textAlign: 'left', p: 2 }}>
+                <Link to="/"><Button variant="contained">Goto Home</Button> </Link>
+                <hr />
+                <Link to={`${url}`}><Button color="inherit">Dashboard</Button> </Link>
+                <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button> </Link>
+                <Link to={`${url}/manageOrders`}><Button color="inherit">Manage Orders</Button> </Link>
+                <Link to={`${url}/myOrders`}><Button color="inherit">My Orders</Button> </Link>
 
-
-
-                <br />
-                <Button onClick={handleLogout} variant="contained">
+                <hr />
+                <Button onClick={handleLogout} variant="contained" color="error">
                     LogOut
                 </Button>
+
 
 
             </List>
@@ -115,13 +126,20 @@ function Dashboard(props) {
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
-                <Typography paragraph>
-                    <Box>
+                <Switch>
+                    <Route exact path={path}>
+                        <DashboardHome></DashboardHome>
+                    </Route>
+                    <Route path={`${path}/manageOrders`}>
                         <ManageAllOrders></ManageAllOrders>
+                    </Route>
+                    <Route path={`${path}/myOrders`}>
                         <MyOrders></MyOrders>
-
-                    </Box>
-                </Typography>
+                    </Route>
+                    <Route path={`${path}/makeAdmin`}>
+                        <MakeAdmin></MakeAdmin>
+                    </Route>
+                </Switch>
             </Box>
         </Box>
     );
