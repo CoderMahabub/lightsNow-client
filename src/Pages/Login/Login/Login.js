@@ -20,9 +20,26 @@ const Login = () => {
     const handleGoogleLogIn = () => {
         googleSignIn()
             .then(result => {
+                // Save user to database
+                saveUser(result.user.email, result.user.displayName);
                 history.push(redirect_uri);
             })
     }
+
+    const saveUser = (email, displayName) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: 'PUT',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(user)
+        }).then()
+    }
+
+
+
+
+
+
 
     // Get Field Value
     const handleOnChange = e => {
