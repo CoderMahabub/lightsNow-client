@@ -18,6 +18,7 @@ import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 import DashboardHome from '../DashboardHome/DashboardHome';
 import Pay from '../Pay/Pay';
 import ReviewPost from '../ReviewPost/ReviewPost';
+import NotFound from '../../NotFound/NotFound';
 
 
 
@@ -28,6 +29,7 @@ import {
 } from "react-router-dom";
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AdminRoute from '../../AdminRoute/AdminRoute';
+import AddProduct from '../AddProduct/AddProduct';
 
 const drawerWidth = 200;
 
@@ -51,8 +53,9 @@ function Dashboard(props) {
 
 
                 {admin && <Box>
-                    <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button> </Link>
                     <Link to={`${url}/manageOrders`}><Button color="inherit">Manage Orders</Button> </Link>
+                    <Link to={`${url}/addProduct`}><Button color="inherit">Add Product</Button> </Link>
+                    <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button> </Link>
                 </Box>}
 
                 {!admin && <Box>
@@ -153,6 +156,12 @@ function Dashboard(props) {
                     <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
                     </AdminRoute>
+                    <AdminRoute path={`${path}/addProduct`}>
+                        <AddProduct></AddProduct>
+                    </AdminRoute>
+                    <Route path={`${path}/*`}>
+                        <NotFound></NotFound>
+                    </Route>
                 </Switch>
             </Box>
         </Box>
