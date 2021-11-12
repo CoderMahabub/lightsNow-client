@@ -14,7 +14,7 @@ const ManageAllOrders = () => {
     const cancel = <FontAwesomeIcon icon={faTrash} />
     const update = <FontAwesomeIcon icon={faEdit} />
 
-    const { user } = useAuth();
+    const { user, admin } = useAuth();
     const [orders, setOrders] = useState([]);
     const [isDeleted, setIsDeleted] = useState(null);
     const [status, setStatus] = useState(false);
