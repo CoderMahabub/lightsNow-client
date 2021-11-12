@@ -43,7 +43,7 @@ const MakeAdmin = () => {
                     type="email"
                     onBlur={handleOnBlur}
                 />
-                <Button type="submit" variant="contained">Make Admin</Button>
+                <Button sx={{ bgcolor: 'success.main' }} type="submit" variant="contained">Make Admin</Button>
             </form>
             {success && <ToastContainer />}
         </div>

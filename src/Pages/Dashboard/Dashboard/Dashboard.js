@@ -16,6 +16,8 @@ import { Button } from '@mui/material';
 import MyOrders from "../MyOrders/MyOrders.js"
 import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
 import DashboardHome from '../DashboardHome/DashboardHome';
+import Pay from '../Pay/Pay';
+import ReviewPost from '../ReviewPost/ReviewPost';
 
 
 
@@ -33,7 +35,6 @@ function Dashboard(props) {
     const { handleLogout, admin } = useAuth();
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-
     let { path, url } = useRouteMatch();
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -44,13 +45,21 @@ function Dashboard(props) {
             <Toolbar />
             <Divider />
             <List sx={{ textAlign: 'left', p: 2 }}>
-                <Link to="/"><Button variant="contained">Goto Home</Button> </Link>
+                <Link to="/"><Button sx={{ bgcolor: 'success.main' }} variant="contained">Goto Home</Button> </Link>
                 <hr />
                 <Link to={`${url}`}><Button color="inherit">Dashboard</Button> </Link>
+
+
                 {admin && <Box>
                     <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button> </Link>
                     <Link to={`${url}/manageOrders`}><Button color="inherit">Manage Orders</Button> </Link>
+                </Box>}
+
+                {!admin && <Box>
+                    <Link to={`${url}/pay`}><Button color="inherit">Pay</Button> </Link>
+                    <br />
                     <Link to={`${url}/myOrders`}><Button color="inherit">My Orders</Button> </Link>
+                    <Link to={`${url}/reviewPost`}><Button color="inherit">Review</Button> </Link>
                 </Box>}
 
                 <hr />
@@ -58,10 +67,8 @@ function Dashboard(props) {
                     LogOut
                 </Button>
 
-
-
             </List>
-        </div>
+        </div >
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
@@ -73,7 +80,7 @@ function Dashboard(props) {
                 position="fixed"
                 sx={{
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
-                    ml: { sm: `${drawerWidth}px` },
+                    ml: { sm: `${drawerWidth}px` }, bgcolor: 'success.main'
                 }}
             >
                 <Toolbar>
@@ -87,7 +94,7 @@ function Dashboard(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Dashboard
+                        {admin ? 'Admin Dashboard' : 'User Dashboard'}
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -136,6 +143,12 @@ function Dashboard(props) {
                     </AdminRoute>
                     <Route path={`${path}/myOrders`}>
                         <MyOrders></MyOrders>
+                    </Route>
+                    <Route path={`${path}/pay`}>
+                        <Pay></Pay>
+                    </Route>
+                    <Route path={`${path}/reviewPost`}>
+                        <ReviewPost></ReviewPost>
                     </Route>
                     <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>

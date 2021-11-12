@@ -14,7 +14,7 @@ const ManageAllOrders = () => {
     const cancel = <FontAwesomeIcon icon={faTrash} />
     const update = <FontAwesomeIcon icon={faEdit} />
 
-    const { user, admin } = useAuth();
+    const { user } = useAuth();
     const [orders, setOrders] = useState([]);
     const [isDeleted, setIsDeleted] = useState(null);
     const [status, setStatus] = useState(false);
@@ -46,9 +46,9 @@ const ManageAllOrders = () => {
 
     //Handle Status Change
     const handleStatusChange = (id) => {
-        const proceed = window.confirm('Are you sure, you want to change Status to Approved?');
+        const proceed = window.confirm('Are you sure, you want to change Status Pending to Shipped?');
         if (proceed) {
-            fetch(`http://localhost:5000/changeStatus/${id}`, {
+            fetch(`https://agile-retreat-45077.herokuapp.com/changeStatus/${id}`, {
                 method: 'PUT',
             })
                 .then(res => res.json())

@@ -18,7 +18,7 @@ const MyOrders = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/allOrders')
+        fetch('https://agile-retreat-45077.herokuapp.com/allOrders')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [isDeleted])
@@ -29,7 +29,7 @@ const MyOrders = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure, You want to Cancel the Booking?');
         if (proceed) {
-            fetch(`http://localhost:5000/deleteOrder/${id}`, {
+            fetch(`https://agile-retreat-45077.herokuapp.com/deleteOrder/${id}`, {
                 method: 'DELETE',
                 headers: { 'content-type': 'application/json' },
             }).then(res => res.json())
