@@ -6,7 +6,7 @@ const useProducts = () => {
         fetch('https://agile-retreat-45077.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
-    }, [])
+    }, [products])
     return [products];
 }
 

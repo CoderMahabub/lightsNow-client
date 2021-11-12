@@ -30,6 +30,8 @@ import {
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AdminRoute from '../../AdminRoute/AdminRoute';
 import AddProduct from '../AddProduct/AddProduct';
+import ManageProducts from '../ManageProducts/ManageProducts';
+import UpdateProduct from '../ManageProducts/UpdateProduct/UpdateProduct';
 
 const drawerWidth = 200;
 
@@ -47,22 +49,23 @@ function Dashboard(props) {
             <Toolbar />
             <Divider />
             <List sx={{ textAlign: 'left', p: 2 }}>
-                <Link to="/"><Button sx={{ bgcolor: 'success.main' }} variant="contained">Goto Home</Button> </Link>
+                <Link to="/"><Button sx={{ bgcolor: 'success.main' }} variant="contained">Lights-Now</Button> </Link>
                 <hr />
-                <Link to={`${url}`}><Button color="inherit">Dashboard</Button> </Link>
+                <Link to={`${url}`} ><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit">Dashboard Home</Button> </Link>
 
 
                 {admin && <Box>
-                    <Link to={`${url}/manageOrders`}><Button color="inherit">Manage Orders</Button> </Link>
-                    <Link to={`${url}/addProduct`}><Button color="inherit">Add Product</Button> </Link>
-                    <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button> </Link>
+                    <Link to={`${url}/manageOrders`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit">Manage Orders</Button> </Link>
+                    <Link to={`${url}/addProduct`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit">Add Product</Button> </Link>
+                    <Link to={`${url}/makeAdmin`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit">Make Admin</Button> </Link>
+                    <Link to={`${url}/manageProducts`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit">Manage Products</Button> </Link>
                 </Box>}
 
                 {!admin && <Box>
-                    <Link to={`${url}/pay`}><Button color="inherit">Pay</Button> </Link>
+                    <Link to={`${url}/pay`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit">Pay</Button> </Link>
                     <br />
-                    <Link to={`${url}/myOrders`}><Button color="inherit">My Orders</Button> </Link>
-                    <Link to={`${url}/reviewPost`}><Button color="inherit">Review</Button> </Link>
+                    <Link to={`${url}/myOrders`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit">My Orders</Button> </Link>
+                    <Link to={`${url}/reviewPost`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit">Review</Button> </Link>
                 </Box>}
 
                 <hr />
@@ -158,6 +161,12 @@ function Dashboard(props) {
                     </AdminRoute>
                     <AdminRoute path={`${path}/addProduct`}>
                         <AddProduct></AddProduct>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/manageProducts`}>
+                        <ManageProducts></ManageProducts>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/updateProduct/:productId`}>
+                        <UpdateProduct></UpdateProduct>
                     </AdminRoute>
                     <Route path={`${path}/*`}>
                         <NotFound></NotFound>
