@@ -12,24 +12,33 @@ const MakeAdmin = () => {
         setEmail(e.target.value);
     }
     const handleAdminSubmit = e => {
-        const user = { email };
-        fetch('https://agile-retreat-45077.herokuapp.com/users/admin', {
-            method: 'PUT',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify(user)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.modifiedCount) {
-                    console.log(data)
-                    setSuccess(true);
-                    toast.success("Booking Done Successfully", {
-                        position: "top-right"
-                    });
-                }
-
+        const proceed = window.confirm('Are you sure, You want to make this email an ADMIN?');
+        if (proceed) {
+            const user = { email };
+            fetch('https://agile-retreat-45077.herokuapp.com/users/admin', {
+                method: 'PUT',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify(user)
             })
-        e.preventDefault();
+                .then(res => res.json())
+                .then(data => {
+                    if (data.modifiedCount) {
+                        // console.log(data)
+                        setSuccess(true);
+                        setEmail('')
+                        toast.success("Admin Created Successfully", {
+                            position: "top-right"
+                        });
+                    }
+                    else {
+                        toast.warn("This email,Already Admin", {
+                            position: "top-right"
+                        });
+                    }
+
+                })
+            e.preventDefault();
+        }
     }
     return (
         <div>
