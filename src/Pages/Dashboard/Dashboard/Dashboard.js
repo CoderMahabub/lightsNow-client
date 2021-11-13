@@ -19,9 +19,7 @@ import DashboardHome from '../DashboardHome/DashboardHome';
 import Pay from '../Pay/Pay';
 import ReviewPost from '../ReviewPost/ReviewPost';
 import NotFound from '../../NotFound/NotFound';
-
-
-
+import DashboardIcon from '@mui/icons-material/Dashboard';
 import {
     Switch,
     Route,
@@ -32,8 +30,16 @@ import AdminRoute from '../../AdminRoute/AdminRoute';
 import AddProduct from '../AddProduct/AddProduct';
 import ManageProducts from '../ManageProducts/ManageProducts';
 import UpdateProduct from '../ManageProducts/UpdateProduct/UpdateProduct';
+import PaymentIcon from '@mui/icons-material/Payment';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import ReviewsIcon from '@mui/icons-material/Reviews';
+import HomeIcon from '@mui/icons-material/Home';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import SettingsApplicationsIcon from '@mui/icons-material/SettingsApplications';
+import LogoutIcon from '@mui/icons-material/Logout';
 
-const drawerWidth = 200;
+const drawerWidth = 240;
 
 function Dashboard(props) {
     const { handleLogout, admin } = useAuth();
@@ -49,28 +55,28 @@ function Dashboard(props) {
             <Toolbar />
             <Divider />
             <List sx={{ textAlign: 'left', p: 2 }}>
-                <Link to="/"><Button sx={{ bgcolor: 'success.main' }} variant="contained">Lights-Now</Button> </Link>
+                <Link to="/"><Button sx={{ bgcolor: 'success.main' }} variant="contained"><HomeIcon /> visit Site</Button> </Link>
                 <hr />
-                <Link to={`${url}`} ><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit">Dashboard Home</Button> </Link>
+                <Link to={`${url}`} ><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit"> <DashboardIcon color="success" /> Dashboard</Button> </Link>
 
 
                 {admin && <Box>
-                    <Link to={`${url}/manageOrders`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit">Manage Orders</Button> </Link>
-                    <Link to={`${url}/addProduct`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit">Add Product</Button> </Link>
-                    <Link to={`${url}/makeAdmin`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit">Make Admin</Button> </Link>
-                    <Link to={`${url}/manageProducts`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit">Manage Products</Button> </Link>
+                    <Link to={`${url}/manageOrders`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit"><SettingsApplicationsIcon color="success" />Manage Orders</Button> </Link>
+                    <Link to={`${url}/addProduct`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit"> <AddBoxIcon color="success" />Add Product</Button> </Link>
+                    <Link to={`${url}/makeAdmin`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit"><ManageAccountsIcon color="success" /> Make Admin</Button> </Link>
+                    <Link to={`${url}/manageProducts`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit"><SettingsApplicationsIcon color="success" />Manage Products</Button> </Link>
                 </Box>}
 
                 {!admin && <Box>
-                    <Link to={`${url}/pay`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit">Pay</Button> </Link>
+                    <Link to={`${url}/pay`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit"> <PaymentIcon color="success" />Pay</Button> </Link>
                     <br />
-                    <Link to={`${url}/myOrders`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit">My Orders</Button> </Link>
-                    <Link to={`${url}/reviewPost`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit">Review</Button> </Link>
+                    <Link to={`${url}/myOrders`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit"><ShoppingBasketIcon color="success" />My Orders</Button> </Link> <br />
+                    <Link to={`${url}/reviewPost`}><Button sx={{ color: 'success.main', fontWeight: 'bold' }} color="inherit"> <ReviewsIcon color="success" />Review</Button> </Link>
                 </Box>}
 
                 <hr />
                 <Button onClick={handleLogout} variant="contained" color="error">
-                    LogOut
+                    LogOut<LogoutIcon />
                 </Button>
 
             </List>

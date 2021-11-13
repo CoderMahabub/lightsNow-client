@@ -2,11 +2,14 @@ import React from 'react';
 import { Card, Col } from 'react-bootstrap';
 import './FeaturedProduct.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTags } from '@fortawesome/free-solid-svg-icons';
+import { faTags, faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 const FeaturedProduct = ({ fProduct }) => {
     const priceTag = <FontAwesomeIcon icon={faTags} />
+    const cart = <FontAwesomeIcon icon={faCartPlus} />
+
+
     const { _id, lightThumbnail, lightTitle, lightDescription, lightPrice } = fProduct;
     return (
         <div className="text-start">
@@ -23,7 +26,7 @@ const FeaturedProduct = ({ fProduct }) => {
 
                         <span className="text-secondary ps-2">{priceTag} <span className="text-warning fw-bold fs-5 ms-1">${lightPrice}</span></span>
                         <Link to={`/buyLight/${_id}`}>
-                            <button className="btn btn-success text-light fw-bold">Buy Now!</button>
+                            <button className="btn btn-success text-light fw-bold">{cart} Buy Now!</button>
                         </Link>
                     </div>
                 </Card>

@@ -1,4 +1,4 @@
-# 
+# LightsNow - a trusted decorative light shop
 
 #### Live Site: [LightsNow](https://lights-now.web.app/)
 #### Live Server: [LightsNow](https://agile-retreat-45077.herokuapp.com/)
@@ -6,7 +6,7 @@
 
  ### Description:
 
- LIGHTS-NOW is one of the biggest shop for decorative lights collection. You well find all the necessary decorative light at one place with cheapest cost.
+ LIGHTS-NOW is one of the biggest shop for decorative lights collection. You well find all the necessary decorative light at one place with cheapest cost because LightsNow is a trusted and decorative light shop.
 
 - Light buyer can see different lights from the home page and explore lights page.
 - To buy light,  customer must login first.

@@ -10,8 +10,9 @@ const ExploreLights = () => {
     return (
         <div>
             <NavBar></NavBar>
-            <Container>
-                <h1 className="bg-dark text-light fw-bold py-2 my-4">Explore All Available Lights</h1>
+            <Container className="my-5">
+                <h1 className="text-danger fw-bold mb-0">Explore Available Lights</h1>
+                <hr className="mb-4 bg-danger py-1 mt-0 d-inline-block mx-auto title-bottom" />
                 {(products.length !== 0) ? <Row xs={1} md={3} className="g-4">
                     {
                         products.map(fProduct => <FeaturedProduct

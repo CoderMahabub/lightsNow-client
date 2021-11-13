@@ -1,55 +1,18 @@
 import React from 'react';
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
 import { Typography } from '@mui/material';
+import useAuth from '../../../hooks/useAuth';
 
 const DashboardHome = () => {
-
+    const { user } = useAuth();
     return (
         <>
             <Typography variant="h2" display="block" gutterBottom>
-                Welcome to Dashboard
+                Welcome <span className="text-success">{user.displayName}</span>
             </Typography>
-            <Grid container sx={{
-                display: 'grid',
-                columnGap: 1,
-                rowGap: 1,
-                gridTemplateColumns: 'repeat(4, 1fr)',
-            }} spacing={2}>
-                <Grid item sx={{ display: 'flex', justifyContent: 'space-between', backgroundColor: 'yellow', alignItems: 'center', py: 3, px: 5 }}>
-                    <Typography variant="overline" display="block" gutterBottom>
-                        Total Users
-                    </Typography>
-                    <Typography variant="overline" display="block" gutterBottom>
-                        1254
-                    </Typography>
-                </Grid>
-                <Grid item sx={{ display: 'flex', justifyContent: 'space-between', backgroundColor: 'yellow', alignItems: 'center', py: 3, px: 5 }}>
-                    <Typography variant="overline" display="block" gutterBottom>
-                        Total Users
-                    </Typography>
-                    <Typography variant="overline" display="block" gutterBottom>
-                        1254
-                    </Typography>
-                </Grid>
-                <Grid item sx={{ display: 'flex', justifyContent: 'space-between', backgroundColor: 'yellow', alignItems: 'center', py: 3, px: 5 }}>
-                    <Typography variant="overline" display="block" gutterBottom>
-                        Total Users
-                    </Typography>
-                    <Typography variant="overline" display="block" gutterBottom>
-                        1254
-                    </Typography>
-                </Grid>
-                <Grid item sx={{ display: 'flex', justifyContent: 'space-between', backgroundColor: 'yellow', alignItems: 'center', py: 3, px: 5 }}>
-                    <Typography variant="overline" display="block" gutterBottom>
-                        Total Users
-                    </Typography>
-                    <Typography variant="overline" display="block" gutterBottom>
-                        1254
-                    </Typography>
-                </Grid>
-            </Grid >
+            <Typography variant="h6" display="block" gutterBottom>
+                Email: {user.email}
+            </Typography>
+
         </>
     );
 };

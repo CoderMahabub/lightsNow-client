@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import logo from '../../../Images/logo.png';
+import logo from '../../../Images/logo2.png';
 import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../../hooks/useAuth';
 
@@ -13,11 +13,11 @@ const NavBar = () => {
                     <img
                         alt=""
                         src={logo}
-                        width="100%"
+                        width="30"
                         height="30"
                         className="d-inline-block align-top"
-                    />{' '}
-                    <span className="text-dark fw-bold">NOW</span>
+                    />
+                    <b className="text-warning fw-bold"><span className="text-danger">LIGHTS</span>NOW</b>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">

@@ -24,7 +24,7 @@ const ManageProducts = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, You want to Delete the Package?');
         if (proceed) {
-            fetch(`http://localhost:5000/deleteProduct/${id}`, {
+            fetch(`https://agile-retreat-45077.herokuapp.com/deleteProduct/${id}`, {
                 method: 'DELETE',
                 headers: { 'content-type': 'application/json' },
             }).then(res => res.json())

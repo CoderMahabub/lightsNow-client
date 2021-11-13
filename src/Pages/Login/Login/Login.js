@@ -28,18 +28,12 @@ const Login = () => {
 
     const saveUser = (email, displayName) => {
         const user = { email, displayName };
-        fetch('http://localhost:5000/users', {
+        fetch('https://agile-retreat-45077.herokuapp.com/users', {
             method: 'PUT',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(user)
         }).then()
     }
-
-
-
-
-
-
 
     // Get Field Value
     const handleOnChange = e => {

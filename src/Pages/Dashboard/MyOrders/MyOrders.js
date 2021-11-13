@@ -41,10 +41,10 @@ const MyOrders = () => {
         }
     }
 
-
     return (
         <div className="py-1">
-            <h1 className="text-primary fw-bold pb-3"><u>My Orders</u></h1>
+            <h1 className="text-danger fw-bold my-2">My Orders</h1>
+            <hr className="mb-4 bg-danger py-1 mt-0 d-inline-block mx-auto title-bottom" />
             {(orders.length !== 0) ?
                 <TableContainer>
                     <Table sx={{ minWidth: 650, border: '1px solid gray' }} aria-label="simple table">

@@ -19,19 +19,19 @@ const Footer = () => {
             <footer className="text-center text-lg-start text-dark">
                 <section className="d-flex justify-content-between p-4 text-white bg-dark">
                     <div className="me-5">
-                        <span>Get connected with us on social networks:</span>
+                        <span>Follow us on</span>
                     </div>
                     <div className="fs-5">
-                        <Link to="/" className="text-white me-4">
+                        <Link to="/" className="text-white me-3">
                             {fb}
                         </Link>
-                        <Link to="/" className="text-white me-4">
+                        <Link to="/" className="text-white me-3">
                             {linkedIn}
                         </Link>
-                        <Link to="/" className="text-white me-4">
+                        <Link to="/" className="text-white me-3">
                             {twitter}
                         </Link>
-                        <Link to="/" className="text-white me-4">
+                        <Link to="/" className="text-white">
                             {github}
                         </Link>
                     </div>
@@ -51,16 +51,16 @@ const Footer = () => {
                                 <h6 className="text-uppercase fw-bold">Explore Lights</h6>
                                 <hr className="mb-4 mt-0 d-inline-block mx-auto hr-bottom" />
                                 <p>
-                                    <Link to="/" className="text-dark me-4">Light Drum Pendant</Link>
+                                    <Link to="/exploreLights" className="text-dark me-4">Light Drum Pendant</Link>
                                 </p>
                                 <p>
-                                    <Link to="/" className="text-dark me-4">Cotton Novelty Pendant</Link>
+                                    <Link to="/exploreLights" className="text-dark me-4">Cotton Novelty Pendant</Link>
                                 </p>
                                 <p>
-                                    <Link to="/" className="text-dark me-4">Polyester Empire Lamp</Link>
+                                    <Link to="/exploreLights" className="text-dark me-4">Polyester Empire Lamp</Link>
                                 </p>
                                 <p>
-                                    <Link to="/" className="text-dark me-4">Cotton Tapered Pendant</Link>
+                                    <Link to="/exploreLights" className="text-dark me-4">Cotton Tapered Pendant</Link>
                                 </p>
 
                             </div>
