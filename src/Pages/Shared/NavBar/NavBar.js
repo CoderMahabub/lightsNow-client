@@ -26,6 +26,7 @@ const NavBar = () => {
                     <Nav className="ms-auto">
                         <Nav.Link className="fw-bold text-dark" as={HashLink} to="/home">Home</Nav.Link>
                         <Nav.Link className="fw-bold text-dark" as={HashLink} to="/exploreLights">Explore-Lights</Nav.Link>
+                        <Nav.Link className="fw-bold text-dark" as={HashLink} to="/contact">Contact</Nav.Link>
 
                         {(!user?.email) ? <Nav.Link className="fw-bold text-dark" as={HashLink} to="/login">Login</Nav.Link>
                             : <>

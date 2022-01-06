@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import './App.css';
 import AuthProvider from "./context/AuthProvider";
+import Contact from "./Pages/Contact/Contact";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
 import ExploreLights from "./Pages/ExploreLights/ExploreLights";
 import Home from "./Pages/Home/Home/Home";
@@ -38,6 +39,9 @@ function App() {
             </Route>
             <Route path="/register">
               <Register></Register>
+            </Route>
+            <Route path="/contact">
+              <Contact></Contact>
             </Route>
             <PrivateRoute path="/buyLight/:_id">
               <OrderPage></OrderPage>
