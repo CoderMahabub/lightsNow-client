@@ -3,9 +3,11 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import logo from '../../../Images/logo2.png';
 import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../../hooks/useAuth';
+import './NavBar.css';
 
 const NavBar = () => {
     const { user, handleLogout } = useAuth();
+    console.log(user);
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
@@ -28,7 +30,12 @@ const NavBar = () => {
                         {(!user?.email) ? <Nav.Link className="fw-bold text-dark" as={HashLink} to="/login">Login</Nav.Link>
                             : <>
                                 <Nav.Link className="fw-bold text-dark" as={HashLink} to="/dashboard">Dashboard</Nav.Link>
-                                <span className="fw-bold mt-1 mx-2 text-success border p-1">{user?.displayName}</span>
+                                <span className="border fw-bold text-success me-2 px-1">{user?.displayName}
+
+                                    {(user?.photoURL) ? <img className='profile ms-1' src={user.photoURL} alt="" />
+                                        : <img className='profile ms-1' src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="" />}
+                                </span>
+
                                 <button onClick={handleLogout} className="btn btn-sm btn-dark">Logout</button>
                             </>
                         }
